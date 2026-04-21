@@ -1,0 +1,25 @@
+FROM debian:bookworm-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
+    curl \
+    jq \
+    libatomic1 \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV LMS_NO_MODIFY_PATH=1
+RUN curl -fsSL https://lmstudio.ai/install.sh | bash -s -- --no-modify-path
+RUN cp /root/.lmstudio/bin/lms /usr/local/bin/lms && chmod +x /usr/local/bin/lms
+
+ENV PATH="/usr/local/bin:${PATH}"
+
+COPY docker/lmstudio-entrypoint.sh /usr/local/bin/lmstudio-entrypoint.sh
+RUN chmod +x /usr/local/bin/lmstudio-entrypoint.sh
+
+EXPOSE 1234
+
+ENTRYPOINT ["/usr/local/bin/lmstudio-entrypoint.sh"]

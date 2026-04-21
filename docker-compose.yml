@@ -1,0 +1,73 @@
+services:
+  lmstudio:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.lmstudio
+    container_name: garage-lmstudio
+    environment:
+      LM_STUDIO_MODEL_REPO: ibm-granite/granite-4.0-h-micro-GGUF
+      LM_STUDIO_QUANTIZATION: Q4_K_M
+      LM_STUDIO_MODEL_IDENTIFIER: granite-4.0-h-micro-GGUF
+      LM_STUDIO_PORT: 1234
+      LM_STUDIO_CONTEXT_LENGTH: 32768
+      LM_STUDIO_GPU_OFFLOAD: off
+    ports:
+      - "1234:1234"
+    volumes:
+      - lmstudio-home:/root/.lmstudio
+      - lmstudio-cache:/root/.cache/lm-studio
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:1234/v1/models"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+
+  garage:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.app
+    image: garage-final-app:latest
+    container_name: garage-runner
+    depends_on:
+      lmstudio:
+        condition: service_healthy
+    working_dir: /workspace
+    environment:
+      PYTHONPATH: /workspace
+      LM_STUDIO_BASE_URL: http://lmstudio:1234/v1
+      LM_STUDIO_MODEL: granite-4.0-h-micro-GGUF
+      EVAL_DATASET: llm/evaluation/shared_dataset/test.npz
+      TRAIN_DATASET_DIR: llm/evaluation/shared_dataset
+      STAGE1_CHECKPOINT: checkpoints/stage1_best_forecast_20260302_223838.pt
+      STAGE2_CHECKPOINT: checkpoints/stage2_clean_20260302_223838.pt
+    volumes:
+      - ./:/workspace
+    entrypoint: ["/workspace/docker/garage.sh"]
+    command: ["shell"]
+    tty: true
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.app
+    image: garage-final-app:latest
+    container_name: garage-dashboard
+    depends_on:
+      lmstudio:
+        condition: service_healthy
+    working_dir: /workspace
+    environment:
+      PYTHONPATH: /workspace
+      LM_STUDIO_BASE_URL: http://lmstudio:1234/v1
+      LM_STUDIO_MODEL: granite-4.0-h-micro-GGUF
+    volumes:
+      - ./:/workspace
+    entrypoint: ["/workspace/docker/garage.sh"]
+    command: ["dashboard"]
+    ports:
+      - "8501:8501"
+
+volumes:
+  lmstudio-home:
+  lmstudio-cache:
