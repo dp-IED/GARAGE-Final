@@ -1,0 +1,24 @@
+# OS/editor artefacts
+.DS_Store
+.cursor/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test and coverage caches
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Build artefacts
+build/
+dist/
+*.egg-info/
