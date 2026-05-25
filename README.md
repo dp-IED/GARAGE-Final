@@ -36,16 +36,29 @@ Detection (OBD window → GDN) → Grounding (knowledge graph) → Explanation (
 ## Demo
 
 <p align="center">
-  <img src="figures/screenshots/demo.png" alt="GARAGE Streamlit demo" width="800">
+  <img src="figures/screenshots/window.png" alt="OBD sensor traces across sliding windows" width="800">
 </p>
 
 <p align="center">
-  <img src="figures/screenshots/window.png" alt="Sensor window view" width="390">
-  &nbsp;&nbsp;
-  <img src="figures/screenshots/graph_screenshot.png" alt="Knowledge graph visualization" width="390">
+  <img src="figures/screenshots/graph_screenshot.png" alt="Per-window knowledge graph with anomaly highlighting" width="520">
 </p>
 
 Browse drives, inspect sensor traces and knowledge graphs, and run live LLM diagnostics against cached GDN outputs.
+
+## Evaluation
+
+GDN+KG+LLM vs. LLM baseline on the shared test split (`figures/gdn_kg_llm_vs_baseline.csv`):
+
+| Metric | LLM Baseline | GDN-KG-LLM | Improvement |
+|--------|--------------|------------|-------------|
+| Window F1 | 0.425 | 0.721 | +69.6% |
+| Window Precision | 1.000 | 0.915 | −8.5% |
+| Window Recall | 0.270 | 0.595 | +120% |
+| Sensor F1 | 0.384 | 0.590 | +53.6% |
+| Sensor Precision | 1.000 | 0.581 | −41.9% |
+| Sensor Recall | 0.238 | 0.600 | +152% |
+| Fault Type Accuracy | 0.601 | 0.693 | +15.3% |
+| BERTScore F1 | 0.871 | 0.864 | −0.8% |
 
 ## Injected Fault Types
 
@@ -101,7 +114,7 @@ docker compose up dashboard
 
 Open <http://localhost:8501>.
 
-Evaluation outputs and metric comparison commands are also in [README.docker.md](README.docker.md). Summary numbers live in `figures/gdn_kg_llm_vs_baseline.csv`.
+Evaluation outputs and metric comparison commands are also in [README.docker.md](README.docker.md).
 
 ## Requirements 
 
