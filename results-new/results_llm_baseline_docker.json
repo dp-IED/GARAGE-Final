@@ -1,0 +1,431 @@
+{
+  "method": "llm_baseline",
+  "dataset": "llm/evaluation/shared_dataset/test.npz",
+  "num_windows": 4,
+  "metrics": {
+    "window_level": {
+      "window_accuracy": 0.75,
+      "window_precision_weighted": 0.5625,
+      "window_recall_weighted": 0.75,
+      "window_f1_weighted": 0.6428571428571428,
+      "window_precision_macro": 0.375,
+      "window_recall_macro": 0.5,
+      "window_f1_macro": 0.42857142857142855,
+      "window_precision": 0.5625,
+      "window_recall": 0.75,
+      "window_f1": 0.6428571428571428,
+      "per_class": {
+        "no_fault": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571,
+          "support": 3
+        },
+        "ENGINE_RPM ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "VEHICLE_SPEED ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "THROTTLE ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "ENGINE_LOAD ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "COOLANT_TEMPERATURE ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "INTAKE_MANIFOLD_PRESSURE ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "SHORT_TERM_FUEL_TRIM_BANK_1 ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "LONG_TERM_FUEL_TRIM_BANK_1 ()": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      }
+    },
+    "sensor_level": {
+      "sensor_accuracy": 0.96875,
+      "sensor_precision": 0.0,
+      "sensor_recall": 0.0,
+      "sensor_f1": 0.0,
+      "per_sensor": {
+        "ENGINE_RPM ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "VEHICLE_SPEED ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "THROTTLE ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "ENGINE_LOAD ()": {
+          "accuracy": 0.75,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 1,
+          "true_negatives": 3
+        },
+        "COOLANT_TEMPERATURE ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "INTAKE_MANIFOLD_PRESSURE ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "SHORT_TERM_FUEL_TRIM_BANK_1 ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "LONG_TERM_FUEL_TRIM_BANK_1 ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        }
+      }
+    },
+    "confusion_matrices": {
+      "window_confusion_matrix": [
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "sensor_confusion_matrix": [
+        [
+          31,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "per_sensor_confusion_matrices": {
+        "ENGINE_RPM ()": [
+          [
+            4
+          ]
+        ],
+        "VEHICLE_SPEED ()": [
+          [
+            4
+          ]
+        ],
+        "THROTTLE ()": [
+          [
+            4
+          ]
+        ],
+        "ENGINE_LOAD ()": [
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "COOLANT_TEMPERATURE ()": [
+          [
+            4
+          ]
+        ],
+        "INTAKE_MANIFOLD_PRESSURE ()": [
+          [
+            4
+          ]
+        ],
+        "SHORT_TERM_FUEL_TRIM_BANK_1 ()": [
+          [
+            4
+          ]
+        ],
+        "LONG_TERM_FUEL_TRIM_BANK_1 ()": [
+          [
+            4
+          ]
+        ]
+      }
+    },
+    "sensor_level_raw": {
+      "sensor_accuracy": 0.96875,
+      "sensor_precision": 0.0,
+      "sensor_recall": 0.0,
+      "sensor_f1": 0.0,
+      "per_sensor": {
+        "ENGINE_RPM ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "VEHICLE_SPEED ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "THROTTLE ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "ENGINE_LOAD ()": {
+          "accuracy": 0.75,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 1,
+          "true_negatives": 3
+        },
+        "COOLANT_TEMPERATURE ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "INTAKE_MANIFOLD_PRESSURE ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "SHORT_TERM_FUEL_TRIM_BANK_1 ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        },
+        "LONG_TERM_FUEL_TRIM_BANK_1 ()": {
+          "accuracy": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "true_negatives": 4
+        }
+      }
+    },
+    "efficiency": {
+      "avg_processing_time_seconds": 10.216386139392853,
+      "total_processing_time_seconds": 40.86554455757141,
+      "windows_per_second": 0.09788196984295161,
+      "avg_context_length_tokens": 72.75,
+      "use_statistical_features": true
+    }
+  },
+  "predictions": {
+    "window_labels": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sensor_labels": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "sensor_labels_raw": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "fault_types": [
+      "cluster_fault",
+      "sensor_drift",
+      "cluster_fault",
+      "cluster_fault"
+    ],
+    "reasoning": [
+      "The anomaly score for SHORT_TERM_FUEL_TRIM_BANK_1() is extremely high at 1.0, indicating a significant fault in the fuel trim system of bank 1. This suggests an overall cluster-level issue with multiple related sensors and systems likely causing the problem.",
+      "Both sensors have high anomaly scores indicating potential drift or malfunction.",
+      "The anomaly score for SHORT_TERM_FUEL_TRIM_BANK_1() is extremely high at 1.0, indicating a significant fault in the fuel trim system of bank 1. This suggests an overall cluster-level issue with multiple related sensors and systems likely causing the problem.",
+      "The anomaly score for SHORT_TERM_FUEL_TRIM_BANK_1() is extremely high at 1.0, indicating a significant fault in the fuel trim system of bank 1. This suggests an overall cluster-level issue with multiple related sensors and systems likely causing the problem."
+    ]
+  }
+}
