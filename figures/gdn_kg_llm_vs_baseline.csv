@@ -1,9 +1,10 @@
-Metric,LLM Baseline,GDN-KG-LLM,Improvement (%)
-Window F1,0.425,0.721,+69.6%
-Window Precision,1.000,0.915,-8.5%
-Window Recall,0.270,0.595,+120%
-Sensor F1,0.384,0.590,+53.6%
-Sensor Precision,1.000,0.581,-41.9%
-Sensor Recall,0.238,0.600,+152%
-Fault Type Accuracy,0.601,0.693,+15.3%
-BERTScore F1,0.871,0.864,-0.8%
+Metric,LLM-only,GDN-KG-LLM
+Window Accuracy,0.0575,0.9725
+Window F1 (weighted),0.0099,0.9694
+Window F1 (macro),0.0247,0.8500
+Sensor Precision,0.0537,1.0000
+Sensor Recall,0.3525,0.9016
+Sensor F1,0.0932,0.9483
+Semantic Fault-Class Accuracy (n=108 faulty),0.2130,0.6852
+Semantic Fault-Class F1 (weighted),0.0873,0.6772
+Semantic Fault-Class F1 (macro),0.0596,0.6068

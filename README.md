@@ -47,18 +47,21 @@ Browse drives, inspect sensor traces and knowledge graphs, and run live LLM diag
 
 ## Evaluation
 
-GDN+KG+LLM vs. LLM baseline on the shared test split (`figures/gdn_kg_llm_vs_baseline.csv`):
+Primary results (Table 6.2 / 6.3 in the dissertation) compare LLM-only vs. GDN-KG-LLM on a **stratified 400-window sample** from the held-out test split (seed 42, same indices for both methods). Window metrics are **multi-class sensor localisation** (class 0 = no fault, classes 1–8 = faulty sensor), not binary fault detection.
 
-| Metric | LLM Baseline | GDN-KG-LLM | Improvement |
-|--------|--------------|------------|-------------|
-| Window F1 | 0.425 | 0.721 | +69.6% |
-| Window Precision | 1.000 | 0.915 | −8.5% |
-| Window Recall | 0.270 | 0.595 | +120% |
-| Sensor F1 | 0.384 | 0.590 | +53.6% |
-| Sensor Precision | 1.000 | 0.581 | −41.9% |
-| Sensor Recall | 0.238 | 0.600 | +152% |
-| Fault Type Accuracy | 0.601 | 0.693 | +15.3% |
-| BERTScore F1 | 0.871 | 0.864 | −0.8% |
+| Metric | LLM-only | GDN-KG-LLM |
+|--------|----------|------------|
+| Window Accuracy | 0.0575 | 0.9725 |
+| Window F1 (weighted) | 0.0099 | 0.9694 |
+| Window F1 (macro) | 0.0247 | 0.8500 |
+| Sensor Precision | 0.0537 | 1.0000 |
+| Sensor Recall | 0.3525 | 0.9016 |
+| Sensor F1 | 0.0932 | 0.9483 |
+| Semantic fault-class accuracy (108 faulty windows) | 0.2130 | 0.6852 |
+| Semantic fault-class F1 (weighted) | 0.0873 | 0.6772 |
+| Semantic fault-class F1 (macro) | 0.0596 | 0.6068 |
+
+Full numbers: `figures/gdn_kg_llm_vs_baseline.csv`. Ad-hoc Docker reruns on the full test split (`results-new/comparison_table.csv`) use a **different metric schema** (binary window F1) and are not comparable to the paper.
 
 ## Injected Fault Types
 
